@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-sm-12">
+    <% if(products.length == 0){ %>
+    <div class="jumbotron" style="margin-top: 36px">
+      <h1 class="display-4">No Item Found 😢</h1>
+      <p class="lead">Try Again.</p>
+    </div>
+    <% } %> <% products.forEach(function(product){ %> <%-
+    include('partials/searchitem', {product: product}) %> <% }); %>
+  </div>
+</div>

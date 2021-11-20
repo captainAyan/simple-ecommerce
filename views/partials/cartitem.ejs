@@ -1,0 +1,56 @@
+<div class="row border-top py-3 mt-3">
+  <div class="col-sm-2">
+    <a href="<%= `/product/${cartItem.product._id}` %>">
+      <img
+        src="<%= `/assets/products/${cartItem.product.image_id}.png` %>"
+        style="height: 120px"
+        alt="cart1"
+        class="img-fluid"
+    /></a>
+  </div>
+  <div class="col-sm-8">
+    <a href="<%= `/product/${cartItem.product._id}` %>"
+      ><h5 class="font-baloo font-size-20">
+        <%= cartItem.product.name %> (Qty. <%= cartItem.quantity %>)
+      </h5></a
+    >
+    <small>by <%= cartItem.product.seller %></small>
+    <!-- product rating -->
+    <div class="d-flex">
+      <div class="rating text-warning font-size-12">
+        <span><i class="fas fa-star"></i></span>
+        <span><i class="fas fa-star"></i></span>
+        <span><i class="fas fa-star"></i></span>
+        <span><i class="fas fa-star"></i></span>
+        <span><i class="far fa-star"></i></span>
+      </div>
+      <a href="#" class="px-2 font-rale font-size-14">20,534 ratings</a>
+    </div>
+    <!--  !product rating-->
+
+    <!-- product qty -->
+    <div class="qty d-flex pt-2">
+      <button
+        type="submit"
+        class="btn font-baloo text-danger px-3 border-right"
+        onclick="removeFromCart('<%= cartItem._id %>')"
+      >
+        Delete
+      </button>
+      <button
+        type="submit"
+        class="btn font-baloo text-danger"
+        onclick="removeOneFromCart('<%= cartItem._id %>')"
+      >
+        Remove One
+      </button>
+    </div>
+    <!-- !product qty -->
+  </div>
+
+  <div class="col-sm-2 text-right">
+    <div class="font-size-20 text-danger font-baloo">
+      $<span class="product_price"><%= cartItem.product.price %></span>/-
+    </div>
+  </div>
+</div>

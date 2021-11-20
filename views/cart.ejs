@@ -1,0 +1,19 @@
+<div class="container w-75">
+  <h3 class="mt-4">Shopping Cart of <u><%= user.name %></u></h3>
+
+  <a href="/auth/logout" class="btn btn-link">Logout</a>
+
+  <!--  shopping cart items   -->
+  <div class="row">
+    <div class="col-sm-12">
+      <% if(cart.length == 0){ %>
+      <div class="jumbotron" style="margin-top: 36px">
+        <h1 class="display-4">No Item in Cart</h1>
+        <p class="lead">Add item to cart by clicking "Add To Cart" button.</p>
+      </div>
+      <% } %> <% cart.forEach(function(cartItem){ %> <%-
+      include('partials/cartitem', {cartItem: cartItem}) %> <% }); %>
+    </div>
+  </div>
+  <!--  !shopping cart items   -->
+</div>

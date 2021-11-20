@@ -1,0 +1,28 @@
+<nav class="navbar navbar-light bg-dark">
+  <a class="navbar-brand" href="./">
+    <img
+      src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
+      width="30"
+      height="30"
+      alt=""
+    />
+  </a>
+  <div class="form-inline">
+    <form action="/search/?offset=0" method="GET">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        name="keyword"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+
+  <% if(locals.user){ %>
+  <a class="btn btn-danger my-2" href="/cart"> Cart </a>
+  <% } else{ %>
+  <a class="btn btn-danger my-2" href="/auth/login"> Log In </a>
+  <% } %>
+</nav>

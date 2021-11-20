@@ -1,0 +1,49 @@
+<div class="row border-top py-3 mt-3">
+  <div class="col-sm-2">
+    <a href="<%= `/product/${product._id}` %>">
+      <img
+        src="<%= `/assets/products/${product.image_id}.png` %>"
+        style="height: 120px"
+        alt="cart1"
+        class="img-fluid"
+    /></a>
+  </div>
+  <div class="col-sm-8">
+    <a href="<%= `/product/${product._id}` %>"
+      ><h5 class="font-baloo font-size-20"><%= product.name %></h5></a
+    >
+    <small>by <%= product.seller %></small>
+    <!-- product rating -->
+    <div class="d-flex">
+      <div class="rating text-warning font-size-12">
+        <span><i class="fas fa-star"></i></span>
+        <span><i class="fas fa-star"></i></span>
+        <span><i class="fas fa-star"></i></span>
+        <span><i class="fas fa-star"></i></span>
+        <span><i class="far fa-star"></i></span>
+      </div>
+      <a href="#" class="px-2 font-rale font-size-14">20,534 ratings</a>
+    </div>
+    <!--  !product rating-->
+
+    <div class="d-flex my-2">
+      <% if(user){ %>
+      <button
+        type="submit"
+        class="btn btn-warning"
+        onclick="addToCart('<%= product.id %>')"
+      >
+        Add to Cart
+      </button>
+      <% } else{ %>
+      <a class="btn btn-warning" href="/auth/login"> Add to Cart </a>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="col-sm-2 text-right">
+    <div class="font-size-20 text-danger font-baloo">
+      $<span class="product_price"><%= product.price %></span>/-
+    </div>
+  </div>
+</div>
