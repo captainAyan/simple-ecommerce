@@ -22,10 +22,28 @@
       <hr />
       <!-- owl carousel -->
       <div class="owl-carousel owl-theme">
-        <% products.forEach(function(product){ %> <%-
+        <% top_products.forEach(function(product){ %> <%-
         include('partials/product', {product: product}) %> <% }); %>
       </div>
       <!-- !owl carousel -->
+    </div>
+  </section>
+
+  <section id="new-phones">
+    <div class="container">
+      <h4 class="font-rubik font-size-20">All Medicine</h4>
+      <hr />
+
+      <div class="grid">
+        <% all_products.forEach(function(product){ %>
+
+        <div class="grid-item mx-4">
+          <div class="item" style="width: 200px">
+            <%- include('partials/product', {product: product}) %>
+          </div>
+        </div>
+        <% }); %>
+      </div>
     </div>
   </section>
 </main>

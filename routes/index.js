@@ -7,14 +7,13 @@ const { ensureAuthenticated, forwardAuthenticated } = require("../config/auth");
 
 // Welcome Page
 router.get("/", (req, res) => {
-  Products.find()
-    .limit(6)
-    .exec(function (err, products) {
-      res.render("index", {
-        user: req.user,
-        products: products,
-      });
+  Products.find().exec(function (err, products) {
+    res.render("index", {
+      user: req.user,
+      top_products: products.filter((p) => p.price > 100),
+      all_products: products,
     });
+  });
 });
 
 router.get("/search", (req, res) => {
